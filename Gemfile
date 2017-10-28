@@ -35,7 +35,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'devise-i18n'
-gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'rolify'
 gem 'cancancan'
