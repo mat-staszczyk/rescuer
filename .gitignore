@@ -53,3 +53,6 @@ Thumbs.db
 
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
+
+# vim swp files
+*.swp
