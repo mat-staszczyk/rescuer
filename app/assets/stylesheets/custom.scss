@@ -6,9 +6,6 @@
 body {
   font-family: Lato;
 }
-.center {
-  text-align: center;
-}
 .jumbotron {
   background: white;
   h1 {
@@ -66,3 +63,15 @@ p {
     display: inline-block;
   }
 }*/
+
+
+/* footer */
+
+footer {
+  margin-bottom: 15px;
+  padding-top: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
