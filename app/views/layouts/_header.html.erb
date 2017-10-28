@@ -1,0 +1,11 @@
+<header class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to image_tag('logo/logo.png', alt: 'Logo', class: 'header-logo'), root_path, id: 'logo', class: 'navbar-brand' %>
+    </div>
+    <nav class="nav navbar-nav navbar-right">
+      <li class="<%= "active" if current_page?(root_path)%>"><%= link_to "Strona główna",  root_path%></li>
+      <li class="<%= "active" if current_page?("#")%>"><%= link_to "Zaloguj", "#"%></li>
+    </nav>
+  </div>
+</header>
