@@ -9,4 +9,6 @@ class UserTest < ActiveSupport::TestCase
   should validate_length_of(:last_name).is_at_most(75)
   should validate_length_of(:email).is_at_most(255)
   should validate_length_of(:password).is_at_least(8)
+  should have_many(:created_help_requests)
+  should have_and_belong_to_many(:help_requests)
 end
