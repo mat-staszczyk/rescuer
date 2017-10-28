@@ -86,6 +86,8 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
     ffi (1.9.18)
     ffi (1.9.18-x64-mingw32)
     globalid (0.4.1)
@@ -233,6 +235,7 @@ DEPENDENCIES
   devise
   devise-i18n
   factory_bot_rails
+  faker (~> 1.8.4)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
