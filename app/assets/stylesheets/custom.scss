@@ -28,7 +28,7 @@ h3 {
 }
 p {
   font-size: 12pt;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 
@@ -50,19 +50,21 @@ p {
 .navbar {
   margin-bottom: 0px;
   font-size: 12pt;
-  padding-bottom: 7px;
+  padding-bottom: 4px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 .navbar-nav {
-  padding-top: 3px;
-}
-/*
-.navbar-nav{
-  width: 100%;
-  > li {
-    display: inline-block;
+  padding-top: 4px;
+  li {
+    height: 53px;
+    &.sign-in {
+      background: dodgerblue;
+      a{
+        color: white;
+      }
+    }
   }
-}*/
+}
 
 
 /* footer */
@@ -74,4 +76,10 @@ footer {
   bottom: 0;
   width: 100%;
   border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* request */
+
+.request-content {
+  padding-top: 20px
 }

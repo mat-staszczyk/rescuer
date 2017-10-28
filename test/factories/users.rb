@@ -3,7 +3,7 @@ FactoryBot.define do
     first_name 'John'
     last_name 'Malkovic'
     birth_date Faker::Date.birthday(18, 65)
-    sequence :email { |n| "email#{n}@email.com" }
+    sequence :email do |n| "email#{n}@email.com" end
     password 'password'
     password_confirmation 'password'
   end
