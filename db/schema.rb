@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171028142105) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.integer "reputation", default: 0, null: false
-    t.datetime "birth_date", null: false
+    t.date "birth_date", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
