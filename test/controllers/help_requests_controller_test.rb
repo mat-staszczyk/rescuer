@@ -12,7 +12,7 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get help_requests_url(@help_request)
+    get help_request_url(@help_request)
     assert_response :success
   end
 
@@ -24,9 +24,9 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
   test "should create a help request" do
     login_as @user
     assert_difference 'HelpRequest.count' do
-      post help_requests_url, params: { help_request: { title: 'Title', description: 'A sample description', author: @user } }
-      assert_response :success
+      post help_requests_url, params: { help_request: { title: 'Title', description: 'A sample description', author_id: @user.id } }
     end
+    assert_redirected_to help_request_url(HelpRequest.last)
   end
 
 end
