@@ -50,3 +50,6 @@ bower.json
 
 # Thumbs.db
 Thumbs.db
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
