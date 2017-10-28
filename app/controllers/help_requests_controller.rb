@@ -1,5 +1,5 @@
 class HelpRequestsController < ApplicationController
-  before_action :set_help_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_help_request, except: [:new, :create, :index]
 
   def index
     @help_requests = HelpRequest.all
@@ -22,6 +22,10 @@ class HelpRequestsController < ApplicationController
   end
 
   def update
+  end
+
+  def activate 
+    @help_request.activate
   end
 
   def destroy
