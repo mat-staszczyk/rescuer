@@ -45,3 +45,6 @@ bower.json
 
 # Jetbrains
 .idea
+
+# Thumbs.db
+Thumbs.db
