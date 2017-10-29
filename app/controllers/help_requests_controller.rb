@@ -9,6 +9,7 @@ class HelpRequestsController < ApplicationController
   end
 
   def new
+    @help_request = HelpRequest.new
   end
 
   def create

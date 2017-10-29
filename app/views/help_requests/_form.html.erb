@@ -6,5 +6,5 @@
     <%= f.label :description, "Treść" %>
     <%= f.text_area :description, placeholder: 'Treść', class: 'form-control' %>
 
-    <%= f.submit "Zapisz zmiany", class: "btn btn-primary" %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
