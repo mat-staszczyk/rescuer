@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+  font-family: Lato;
+  src: url(Lato-Regular.ttf);
+}
 /* typography */
 
 body {
