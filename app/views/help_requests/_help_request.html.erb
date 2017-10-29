@@ -1,9 +1,10 @@
 <div class="row help-request">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <h3 class="request-title"><%= help_request.title %></h1>
-    <h4 class="request-author"><%= help_request.author.full_name %></h2>
+    <h3 class="request-title"><%= link_to help_request.title, help_request %></h1>
+    <h4 class="request-author"><%= link_to "#{help_request.author.full_name} (#{help_request.author.reputation})", "mailto:#{help_request.author.email}" %></h2>
     <p class="request-description"><%= help_request.description %></p>
+    <hr>
   </div>
   <div class="col-md-2"></div>
 </div>

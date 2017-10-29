@@ -40,7 +40,7 @@ p {
 /* navbar */
 
 header.navbar {
-  margin-top: 15px;
+  margin: 15px 5px 30px 5px;
 }
 
 #logo {
@@ -114,9 +114,18 @@ footer {
   border-bottom: 1px solid rgba(0,116,0,0.5);
 }
 
-.request-author{
+.request-author a {
   margin-top: 5px;
-  font-size: 16pt;
+  font-size: 12pt;
+  font-weight: 300;
+  color: grey;
+}
+
+.request-description {
+  font-size: 13pt;
+  font-weight: 400;
+  line-height: 200%;
+  letter-spacing: 0.8px;
 }
 
 .request-button{
@@ -143,5 +152,5 @@ textarea.form-control {
 }
 
 .help-request {
-  margin: 30px 0;
+  margin: 50px 0;
 }
