@@ -10,12 +10,27 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <main class="container-fluid">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <main class="container-fluid" role="alert">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+    <% if notice %>
+      <div class="alert alert-info">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
     <%= yield %>
     </main>
-    <%= render 'layouts/footer' %>
 
+    <%= render 'layouts/footer' %>
   </body>
 </html>
