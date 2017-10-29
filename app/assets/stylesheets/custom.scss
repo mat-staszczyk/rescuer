@@ -1,15 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import␣url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800&subset=latin-ext');
 
-@font-face {
-  font-family: Lato;
-  src: url(Lato-Regular.ttf);
+@mixin serif-font {
+  font-family: "Open␣Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 /* typography */
 
 body {
-  font-family: Lato;
+  @include serif-font;
 }
+
 .container {
   width: 60%;
 }
@@ -38,8 +40,6 @@ p {
   font-weight: 500;
 }
 
-
-
 /* navbar */
 
 #logo {
@@ -62,12 +62,16 @@ p {
 }
 .navbar-nav {
   padding-top: 8px;
-  padding-bottom: 5px;
+  padding: 5px 10px;
+  a {
+    font-size: 12pt;
+    text-decoration: none;
+  }
   li {
-    .sign-in {
-      height: 53px;
-      padding: 0 10px;
-      a{
+    margin-right: 5px;
+    button {
+      padding: 15px 20px;
+      a {
         color: white;
       }
     }
