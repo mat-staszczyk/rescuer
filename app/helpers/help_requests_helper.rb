@@ -1,7 +1,6 @@
 module HelpRequestsHelper
   def is_user_request?
-   # @help_request.author ==
-   current_user
+    @help_request.author == current_user
   end
 
   def is_draft_request?
