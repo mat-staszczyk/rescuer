@@ -9,11 +9,13 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
+    login_as @draft_request.author
     get help_request_url(@draft_request)
     assert_response :success
   end
 
   test "should get edit" do
+    login_as @draft_request.author
     get edit_help_request_url(@draft_request)
     assert_response :success
   end
