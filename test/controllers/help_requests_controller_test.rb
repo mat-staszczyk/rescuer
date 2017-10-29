@@ -61,7 +61,7 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
       get follow_help_request_url(@active_request)
       assert_redirected_to help_request_url(@active_request)
       assert_nil(flash[:alert])
-      assert_equal('Dołączyłeś do prośby o pomoc.', flash[:notice])
+      assert_equal('Dziękujemy za pomoc!', flash[:notice])
     end
   end
 end
