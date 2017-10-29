@@ -1,5 +1,6 @@
 class HelpRequestsController < ApplicationController
   before_action :set_help_request, except: [:new, :create]
+  before_action :authenticate_user!
 
   def show
   end
