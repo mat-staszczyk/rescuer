@@ -4,6 +4,9 @@
           <%= link_to image_tag('logo/logo.png', alt: 'Logo', class: 'header-logo'), root_path, id: 'logo', class: 'navbar-brand' %>
         </div>
         <nav class="nav navbar-nav navbar-right">
+          <li class="<%= "active" if current_page?(new_help_request_path) %>">
+            <%= link_to 'Poproś o pomoc', new_help_request_path, class: 'btn btn-primary' %>
+          </li>
           <li class="<%= "active" if current_page?(root_path)%>">
             <%= link_to 'Prośby o pomoc', root_path, class: 'btn btn-default'%>
           </li>
