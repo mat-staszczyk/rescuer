@@ -1,18 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import␣url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800&subset=latin-ext');
 
-@font-face {
-  font-family: Lato;
-  src: url(Lato-Regular.ttf);
+@mixin serif-font {
+  font-family: "Open␣Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 /* typography */
 
 body {
-  font-family: Lato;
+  @include serif-font;
 }
-.container {
-  width: 60%;
-}
+
 .jumbotron {
   background: white;
   h1 {
@@ -38,9 +37,11 @@ p {
   font-weight: 500;
 }
 
-
-
 /* navbar */
+
+header.navbar {
+  margin-top: 15px;
+}
 
 #logo {
   margin-right: 10px;
@@ -58,29 +59,34 @@ p {
   margin-bottom: 0px;
   font-size: 12pt;
   padding-bottom: 7px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 .navbar-nav {
   padding-top: 8px;
-  padding-bottom: 5px;
+  padding: 5px 10px;
+  a {
+    font-size: 12pt;
+    text-decoration: none;
+  }
   li {
-    .sign-in {
-      height: 53px;
-      padding: 0 10px;
-      a{
+    margin-right: 5px;
+    button {
+      padding: 15px 20px;
+      &.btn-default {
+        border-color: white;
+      }
+      &.sign-in a {
         color: white;
       }
     }
   }
 }
 
-
 /* footer */
 
 footer {
   margin-bottom: 15px;
   padding-top: 15px;
-  position: absolute;
+  //position: absolute;
   bottom: 0;
   width: 100%;
   border-top: 1px solid rgba(0,0,0,0.1);
@@ -89,13 +95,12 @@ footer {
 /* request */
 
 .request-content {
-  padding-top: 20px
+  padding-top: 20px 0;
 }
 
 .request-title {
-  display: block;
-  font-size: 32pt;
 }
+
 .draft{
   color: $gray-light;
   border-bottom: 1px solid rgba(0,0,0,0.3);
@@ -135,4 +140,8 @@ form {
 
 textarea.form-control {
   height: 300px;
+}
+
+.help-request {
+  margin: 30px 0;
 }
