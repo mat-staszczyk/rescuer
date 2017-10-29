@@ -14,8 +14,8 @@
           <li class="<%= "active" if current_page?(new_user_session_path) %>">
             <%= link_to "Logowanie", new_user_session_path, class: 'btn btn-default' %>
           </li>
-          <li>
-              <%= link_to 'Rejestracja', new_user_registration_path, class: 'btn btn-primary sign-in' %>
+          <li class="<%= "active" if current_page?(new_user_registration_path) %>">
+              <%= link_to 'Rejestracja', new_user_registration_path, class: 'btn btn-default' %>
           </li>
         <% end %>
           <% if user_signed_in? %>

@@ -1,14 +1,7 @@
 <%= form_for(@help_request) do |f| %>
-
     <%= f.label :title, "Temat" %>
     <%= f.text_field :title, class: 'form-control' %>
-
     <%= f.label :description, "Opis" %>
-<<<<<<< HEAD
-    <%= f.text_area :description, placeholder: 'Treść', class: 'form-control' %>
-=======
     <%= f.text_area :description, placeholder: 'Dokładny opis Twojego problemu. Nie zapominaj o tym, że im więcej informacji zamieścisz, tym łatwiej będzie można odnaleźć chętnych do pomocy.', class: 'form-control' %>
->>>>>>> e113ca00b6c318fd00b20c9cee0ffb723bd7991c
-
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
