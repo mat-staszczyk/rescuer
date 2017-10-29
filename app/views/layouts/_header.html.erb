@@ -5,8 +5,8 @@
         </div>
         <nav class="nav navbar-nav navbar-right">
           <li class="<%= "active" if current_page?(root_path)%>"><button class="btn btn-default"><%= link_to "Strona główna",  root_path %></button></li>
-          <li class="<%= "active" if current_page?("#") %>"><%= link_to "Zaloguj", "#" %></li>
-          <li><button class="btn btn-primary sign-in"><%= link_to "Zarejestruj", "#" %></button></li>
+          <li class="<%= "active" if current_page?("#") %>"><%= link_to "Zaloguj", new_user_session_path %></li>
+          <li><button class="btn btn-primary sign-in"><%= link_to "Zarejestruj", new_user_registration_path %></button></li>
         </nav>
     </div>
   </header>
