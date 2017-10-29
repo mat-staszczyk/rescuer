@@ -32,8 +32,8 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
     login_as @draft_request.author
     get activate_help_request_url(@draft_request)
     assert_redirected_to help_request_url(@draft_request)
-    assert_equal('Prośba o pomoc została aktywowana.', flash[:notice])
     assert_nil(flash[:alert])
+    assert_equal('Prośba o pomoc została aktywowana.', flash[:notice])
     assert_equal('active', @draft_request.reload.state)
   end
 
@@ -41,8 +41,8 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
     login_as @active_request.author
     get cancel_help_request_url(@active_request)
     assert_redirected_to help_request_url(@active_request)
-    assert_equal('Prośba o pomoc została anulowana.', flash[:notice])
     assert_nil(flash[:alert])
+    assert_equal('Prośba o pomoc została anulowana.', flash[:notice])
     assert_equal('cancelled', @active_request.reload.state)
   end
 
@@ -50,8 +50,18 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
     login_as @active_request.author
     get complete_help_request_url(@active_request)
     assert_redirected_to help_request_url(@active_request)
-    assert_equal('Prośba o pomoc została ukończona.', flash[:notice])
     assert_nil(flash[:alert])
+    assert_equal('Prośba o pomoc została ukończona.', flash[:notice])
     assert_equal('completed', @active_request.reload.state)
+  end
+
+  test "should follow a help request" do
+    login_as @draft_request.author
+    assert_difference '@active_request.rescuers.count' do
+      get follow_help_request_url(@active_request)
+      assert_redirected_to help_request_url(@active_request)
+      assert_nil(flash[:alert])
+      assert_equal('Dołączyłeś do prośby o pomoc.', flash[:notice])
+    end
   end
 end
