@@ -12,6 +12,11 @@ body {
   @include serif-font;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 .jumbotron {
   background: white;
   h1 {
@@ -86,7 +91,7 @@ header.navbar {
 footer {
   margin-bottom: 15px;
   padding-top: 15px;
-  //position: absolute;
+  position: absolute;
   bottom: 0;
   width: 100%;
   border-top: 1px solid rgba(0,0,0,0.1);
@@ -153,4 +158,8 @@ textarea.form-control {
 
 .help-request {
   margin: 50px 0;
+}
+
+.help-requests-list .help-request:last-child hr {
+  visibility: hidden;
 }
