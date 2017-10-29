@@ -1,10 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+  font-family: Lato;
+  src: url(Lato-Regular.ttf);
+}
 /* typography */
 
 body {
   font-family: Lato;
+}
+.container {
+  width: 60%;
 }
 .jumbotron {
   background: white;
@@ -44,17 +51,18 @@ p {
 }
 
 .header-logo{
-  height: 53px;
+  height: 64px;
 }
 
 .navbar {
   margin-bottom: 0px;
   font-size: 12pt;
-  padding-bottom: 4px;
+  padding-bottom: 7px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 .navbar-nav {
-  padding-top: 4px;
+  padding-top: 8px;
+  padding-bottom: 5px;
   li {
     .sign-in {
       height: 53px;
@@ -108,4 +116,23 @@ footer {
 
 .request-button{
   text-align: right;
+}
+
+/*  form */
+
+form {
+  margin-top: 20px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-center{
+  width: 65%;
+  margin: auto;
+}
+
+textarea.form-control {
+  height: 300px;
 }
