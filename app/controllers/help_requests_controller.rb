@@ -24,11 +24,15 @@ class HelpRequestsController < ApplicationController
   def update
   end
 
+
+  def destroy
+  end
+
   def activate
     if @help_request.activate
       redirect_to @help_request, notice: 'Prośba o pomoc została aktywowana.'
     else
-      redirect_to @help_request, alert: errors[:state].join('; ')
+      redirect_to @help_request, alert: @help_request.errors[:state].join('; ')
     end
   end
 
@@ -36,11 +40,16 @@ class HelpRequestsController < ApplicationController
     if @help_request.cancel
       redirect_to @help_request, notice: 'Prośba o pomoc została anulowana.'
     else
-      redirect_to @help_request, alert: errors[:state].join('; ')
+      redirect_to @help_request, alert: @help_request.errors[:state].join('; ')
     end
   end
 
-  def destroy
+  def complete
+    if @help_request.complete
+      redirect_to @help_request, notice: 'Prośba o pomoc została ukończona.'
+    else
+      redirect_to @help_request, alert: @help_request.errors[:state].join('; ')
+    end
   end
 
   private
