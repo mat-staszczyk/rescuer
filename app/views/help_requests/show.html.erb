@@ -1,5 +1,12 @@
 <div class="container request-content">
   <div class="row">
-    <p>Weeee </p>
+    <h1 class="request-title"><%= @help_request.title %></h1>
+    <h2 class="request-author">Autor: <%= @help_request.author.full_name %></h2>
+    <p class="request-description">Opis: <%= @help_request.description %></p>
+  </div>
+  <div class="row request-button">
+    <%#= if current_user == @help_request.author %> <button class="btn btn-primary edit-btn">Edytuj</button> <%#= end %>
+    <%#= if current_user == @help_request.author %> <button class="btn btn-primary edit-btn">Wycofaj</button> <%#= end %>
+    <%#= if current_user == @help_request.author %> <button class="btn btn-primary edit-btn">Aktywuj</button> <%#= end %>
   </div>
 </div>

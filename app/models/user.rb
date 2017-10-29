@@ -11,4 +11,8 @@ class User < ApplicationRecord
 
   has_many :created_help_requests, class_name: 'HelpRequest', foreign_key: 'author_id'
   has_and_belongs_to_many :help_requests
+
+  def full_name
+    first_name + " " + last_name
+  end
 end

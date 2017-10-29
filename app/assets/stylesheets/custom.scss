@@ -18,7 +18,7 @@ body {
 }
 
 h1 {
-  font-size: 22pt;
+  font-size: 24pt;
 }
 h2 {
   font-size: 18pt;
@@ -56,9 +56,9 @@ p {
 .navbar-nav {
   padding-top: 4px;
   li {
-    height: 53px;
-    &.sign-in {
-      background: dodgerblue;
+    .sign-in {
+      height: 53px;
+      padding: 0 10px;
       a{
         color: white;
       }
@@ -82,4 +82,30 @@ footer {
 
 .request-content {
   padding-top: 20px
+}
+
+.request-title {
+  display: block;
+  font-size: 32pt;
+}
+.draft{
+  color: $gray-light;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.active {
+  color: dodgerblue;
+  border-bottom: 1px solid rgba(11,64,112,0.3);
+}
+.complete {
+  color: green;
+  border-bottom: 1px solid rgba(0,116,0,0.5);
+}
+
+.request-author{
+  margin-top: 5px;
+  font-size: 16pt;
+}
+
+.request-button{
+  text-align: right;
 }
