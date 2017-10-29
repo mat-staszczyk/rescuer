@@ -5,14 +5,19 @@
     <p class="request-description">Opis: <%= @help_request.description %></p>
   </div>
   <div class="row request-button">
+    <% if is_active_request? && 
+          user_signed_in? && 
+          current_user == @help_request.author %> 
+      <%= link_to 'Pomagam', follow_help_request_path, class:"btn btn-success edit-btn" %>
+    <% end %>
+    <% if is_draft_request? %>
+      <button class="btn btn-primary edit-btn">Aktywuj</button>
+    <% end %>
     <% if is_user_request? %>
       <button class="btn btn-primary edit-btn">Edytuj</button>
     <% end %>
     <% if is_active_request? %>
-      <button class="btn btn-primary edit-btn">Wycofaj</button>
-    <% end %>
-    <% if is_draft_request? %>
-      <button class="btn btn-primary edit-btn">Aktywuj</button>
+      <button class="btn btn-danger edit-btn">Wycofaj</button>
     <% end %>
   </div>
 </div>

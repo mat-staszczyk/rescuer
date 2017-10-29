@@ -56,10 +56,10 @@ class HelpRequestsController < ApplicationController
       redirect_to @help_request, alert: 'Już dołączyłeś do tej prośby o pomoc.'
     else
       @help_request.rescuers << current_user
-      redirect_to @help_request, notice: 'Dołączyłeś do prośby o pomoc.'
+      redirect_to @help_request, notice: 'Dziękujemy za pomoc!'
     end
-    rescue => e
-      redirect_to @help_request, alert: "Wystąpił błąd: #{e}"
+    rescue
+      redirect_to @help_request, alert: "Wystąpił nieznany błąd."
     end
   end
 
