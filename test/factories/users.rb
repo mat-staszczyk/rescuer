@@ -4,7 +4,7 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     birth_date { Faker::Date.birthday(18, 65) }
     sequence :email do |n| "email#{n}@email.com" end
-    password 'password'
-    password_confirmation 'password'
+    password Rails.application.secrets[:user_password]
+    password_confirmation Rails.application.secrets[:user_password]
   end
 end
