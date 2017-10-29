@@ -24,8 +24,20 @@ class HelpRequestsController < ApplicationController
   def update
   end
 
-  def activate 
-    @help_request.activate
+  def activate
+    if @help_request.activate
+      redirect_to @help_request, notice: 'Prośba o pomoc została aktywowana.'
+    else
+      redirect_to @help_request, alert: errors[:state].join('; ')
+    end
+  end
+
+  def cancel
+    if @help_request.cancel
+      redirect_to @help_request, notice: 'Prośba o pomoc została anulowana.'
+    else
+      redirect_to @help_request, alert: errors[:state].join('; ')
+    end
   end
 
   def destroy

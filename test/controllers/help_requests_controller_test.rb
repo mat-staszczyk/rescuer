@@ -29,4 +29,17 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to help_request_url(HelpRequest.last)
   end
 
+  test "should activate a help request" do
+    login_as @user
+    get activate_help_request_url(@help_request)
+    assert_redirected_to help_request_url(@help_request)
+    assert_equal('Prośba o pomoc została aktywowana.', flash[:notice])
+  end
+
+  test "should cancel a help request" do
+    login_as @user
+    get cancel_help_request_url(@help_request)
+    assert_redirected_to help_request_url(@help_request)
+    assert_equal('Prośba o pomoc została anulowana.', flash[:notice])
+  end
 end
