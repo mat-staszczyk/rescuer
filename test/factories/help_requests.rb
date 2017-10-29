@@ -3,7 +3,6 @@ FactoryBot.define do
     title { Faker::Lorem.words.join(' ') }
     description { Faker::Lorem.paragraph(10) }
     association :author, factory: :user
-    state 'active'
 
     factory :help_request_with_rescuers do
       after(:create) do |request|
