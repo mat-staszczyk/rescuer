@@ -50,6 +50,19 @@ class HelpRequestsController < ApplicationController
     end
   end
 
+  def follow
+    begin
+    if @help_request.rescuers.exists? current_user.id
+      redirect_to @help_request, alert: 'Już dołączyłeś do tej prośby o pomoc.'
+    else
+      @help_request.rescuers << current_user
+      redirect_to @help_request, notice: 'Dołączyłeś do prośby o pomoc.'
+    end
+    rescue => e
+      redirect_to @help_request, alert: "Wystąpił błąd: #{e}"
+    end
+  end
+
   private
 
   def set_help_request

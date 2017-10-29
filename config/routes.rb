@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     to: 'help_requests#cancel', as: 'cancel_help_request'
   get '/help_requests/complete/:id',
     to: 'help_requests#complete', as: 'complete_help_request'
+  get '/help_requests/follow/:id',
+    to: 'help_requests#follow', as: 'follow_help_request'
 end
