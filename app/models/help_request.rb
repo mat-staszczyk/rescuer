@@ -11,30 +11,47 @@ class HelpRequest < ApplicationRecord
   end
 
   def activate
-    if state == 'active'
+    case state
+    when 'active'
       errors.add(:state, :already_active,
                  message: 'prośba o pomoc jest już aktywna')
-      return false
-    elsif state != 'draft'
+    when 'completed', 'cancelled'
       errors.add(:state, :must_be_a_draft,
                  message: 'aktywować można jedynie prośby w stanie roboczym')
-      return false
+    when 'draft'
+      return update(state: :active)
     end
 
-    update(state: :active)
+    return false
   end
 
   def cancel
-    if state == 'cancelled'
+    case state
+    when 'cancelled'
       errors.add(:state, :already_cancelled,
-                 message: 'prośba o pomoc jest już wycofana')
-      return false
-    elsif state != 'draft'
+                 message: 'prośba o pomoc jest już anulowana')
+    when 'completed', 'draft'
       errors.add(:state, :must_be_active,
-                 message: 'wycofać można jedynie aktywne prośby ')
-      return false
+                 message: 'wycofać można jedynie aktywne prośby')
+    when 'active'
+      return update(state: :cancelled)
     end
 
-    update(state: :cancelled)
+    return false
+  end
+
+  def complete
+    case state
+    when 'completed'
+      errors.add(:state, :already_completed,
+                 message: 'prośba o pomoc jest już zakończona')
+    when 'cancelled', 'draft'
+      errors.add(:state, :must_be_active,
+                 message: 'zakończyć można jedynie aktywne prośby')
+    when 'active'
+      return update(state: :completed)
+    end
+
+    return false
   end
 end
