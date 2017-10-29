@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :help_request do
-    title "Monster alert"
-    description "Monster alert"
+    title { Faker::Lorem.words.join(' ') }
+    description { Faker::Lorem.paragraph(10) }
     association :author, factory: :user
+    state 'active'
 
     factory :help_request_with_rescuers do
       after(:create) do |request|
