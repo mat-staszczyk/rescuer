@@ -23,7 +23,7 @@ class HelpRequestsControllerTest < ActionDispatch::IntegrationTest
   test "should create a help request" do
     login_as @draft_request.author
     assert_difference 'HelpRequest.count' do
-      post help_requests_url, params: { help_request: { title: 'Title', description: 'A sample description', author_id: @draft_request.author.id } }
+      post help_requests_url, params: { help_request: { title: 'Title', description: 'A sample description' } }
     end
     assert_redirected_to help_request_url(HelpRequest.last)
   end

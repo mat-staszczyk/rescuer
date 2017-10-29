@@ -11,6 +11,7 @@ class HelpRequestsController < ApplicationController
 
   def create
     @help_request = HelpRequest.new(help_request_params)
+    @help_request.author = current_user
 
     if @help_request.save
       redirect_to @help_request, notice: 'Prośba o pomoc została dodana.'
@@ -70,6 +71,6 @@ class HelpRequestsController < ApplicationController
   end
 
   def help_request_params
-    params.require(:help_request).permit(:title, :description, :author_id)
+    params.require(:help_request).permit(:title, :description)
   end
 end
