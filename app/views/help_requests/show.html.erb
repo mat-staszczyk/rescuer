@@ -17,7 +17,7 @@
       <% if is_draft_request? %>
         <%= link_to 'Aktywuj', activate_help_request_path(@help_request),  class: "btn btn-primary edit-btn" %>
       <% end %>
-      <% if @help_request.state != 'completed' %>
+      <% unless @help_request.state.in?(['completed','cancelled']) %>
         <%= link_to 'Edytuj', edit_help_request_path(@help_request), class: "btn btn-primary edit-btn" %>
       <% end %>
       <% if is_active_request? %>
