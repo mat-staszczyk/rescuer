@@ -2,6 +2,11 @@ HelpRequest.destroy_all
 User.destroy_all
 puts "Destroyed all users and help requests"
 
+FactoryBot.create(:user, email: Rails.application.secrets[:user_email],
+                         password: Rails.application.secrets[:user_password],
+                         password_confirmation: Rails.application.secrets[:user_password]) 
+puts 'Test user added'
+
 help_requests = [
   'Pomoc w naprawie roweru',
   'Wniesienie kanapy na 4 piętro',
