@@ -1,0 +1,32 @@
+.container.form
+  .form-center
+    %h2 Edytuj dane
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, class: 'form-control'
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Obecnie oczekuje na potwierdzenie od: #{resource.unconfirmed_email}
+      .field
+        = f.label :password, "Hasło"
+        %i (zostaw puste jeśli nie chcesz zmieniać)
+        %br/
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+      .field
+        = f.label :password_confirmation, "Potwierdź hasło"
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+      .field
+        = f.label :current_password,"Obecne hasło"
+        %i (potrzebujemy go aby potwierdzić zmiany)
+        %br/
+        = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+      .actions
+        = f.submit "Aktualizuj", class: 'btn btn-primary'
+    %br/
+    %h4
+    %p Usuń konto
+    = button_to "Usuń moje konto", registration_path(resource_name), data: { confirm: "Jesteś pewien?" }, method: :delete , class: 'btn btn-small'

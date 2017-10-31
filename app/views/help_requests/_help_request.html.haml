@@ -1,0 +1,10 @@
+.row.help-request
+  .col-md-2
+  .col-md-8
+    %h3.request-title
+      = link_to help_request.title, help_request
+      %h4.request-author
+        = link_to "#{help_request.author.full_name} (#{help_request.author.reputation})", "mailto:#{help_request.author.email}"
+    %p.request-description= help_request.description
+    %hr/
+  .col-md-2

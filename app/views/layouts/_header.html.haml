@@ -1,0 +1,23 @@
+%body
+  %header.navbar
+    .container
+      .navbar-header
+        = link_to image_tag('logo/logo.png', alt: 'Logo', class: 'header-logo'), root_path, id: 'logo', class: 'navbar-brand'
+      %nav.nav.navbar-nav.navbar-right
+        %li{:class => "#{"active" if current_page?(new_help_request_path)}"}
+          = link_to 'Poproś o pomoc', new_help_request_path, class: 'btn btn-primary'
+        %li{:class => "#{"active" if current_page?(root_path)}"}
+          = link_to 'Prośby o pomoc', root_path, class: 'btn btn-default'
+        - unless user_signed_in?
+          %li{:class => "#{"active" if current_page?(new_user_session_path)}"}
+            = link_to "Logowanie", new_user_session_path, class: 'btn btn-default'
+          %li{:class => "#{"active" if current_page?(new_user_registration_path)}"}
+            = link_to 'Rejestracja', new_user_registration_path, class: 'btn btn-default'
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button"}
+              = current_user.first_name
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li= link_to 'Edytuj dane', edit_user_registration_path
+              %li= link_to 'Wyloguj się', destroy_user_session_path, method: :delete

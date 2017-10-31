@@ -1,0 +1,20 @@
+.container.request-content
+  .row
+    %h1{:class => "request-title #{@help_request.state}"}= @help_request.title
+    %h2.request-author
+      Autor: #{@help_request.author.full_name}
+    %p.request-description
+      Opis: #{@help_request.description}
+  .row.request-button
+    - if user_signed_in?
+      - if is_active_request? && current_user != @help_request.author
+        = link_to 'Pomagam', follow_help_request_path(@help_request), class:"btn btn-success edit-btn"
+      - if is_user_request?
+        - if is_active_request?
+          = link_to 'Zakończ', complete_help_request_path(@help_request), class: "btn btn-primary edit-btn"
+        - if is_draft_request?
+          = link_to 'Aktywuj', activate_help_request_path(@help_request),  class: "btn btn-primary edit-btn"
+        - unless @help_request.state.in?(['completed','cancelled'])
+          = link_to 'Edytuj', edit_help_request_path(@help_request), class: "btn btn-primary edit-btn"
+        - if is_active_request?
+          = link_to 'Wycofaj', cancel_help_request_path(@help_request), class: "btn btn-danger edit-btn"

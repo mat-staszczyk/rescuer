@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= full_title(yield(:title))
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Lato', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'layouts/header'
+    %main.container-fluid{:role => "alert"}
+      .row
+        .col-md-2
+        .col-md-8
+          - if notice
+            .alert.alert-info
+              = notice
+          - if alert
+            .alert.alert-danger{:role => "alert"}
+              = alert
+        .col-md-2
+      = yield
+    = render 'layouts/footer'

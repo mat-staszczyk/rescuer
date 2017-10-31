@@ -1,0 +1,14 @@
+= form_for(@help_request) do |f|
+  - if @help_request.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@help_request.errors.count, "error")
+        prohibited this help request from being saved:
+      %ul
+        - @help_request.errors.full_messages.each do |message|
+          %li= message
+  = f.label :title, "Temat"
+  = f.text_field :title, class: 'form-control'
+  = f.label :description, "Opis"
+  = f.text_area :description, placeholder: 'Dokładny opis Twojego problemu. Nie zapominaj o tym, że im więcej informacji zamieścisz, tym łatwiej będzie można odnaleźć chętnych do pomocy.', class: 'form-control'
+  = f.submit yield(:button_text), class: "btn btn-primary"
